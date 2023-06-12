@@ -18,7 +18,6 @@ Array.prototype.remove = function (...num) {
         if (num[i] > 0) {
             this[num[i] - 1] = null;
         } else {
-            // console.log(num);
             this[this.length + num[i]] = null;
         }
     }
@@ -164,9 +163,12 @@ Element.prototype.animation = function (type) {
 
 // servicesSec.animation('m-show')
 
-const sections = Array.from($('body').children).remove(1, -1);
+const sections = Array.from($('body').children) , sectionsTarge = Array.from(sections).remove(1, -1);
+
 console.log(sections);
-sections.forEach((e, i) => {
-    e
+sections[0].animation('f-left');
+sections[1].animation('f-right');
+
+sectionsTarge.forEach((e, i) => {
     i % 2 == 0 ? e.animation('f-left') : e.animation('f-right');
 })
