@@ -24,11 +24,6 @@ Array.prototype.remove = function (...num) {
     return this.filter(e => e != null)
 }
 
-
-let arr = [1, 2, 3, 4, 5, 6, 7];
-let nArr = arr.remove(-1);
-console.log(nArr);
-
 /******************@Start_menu *********************/
 
 $('.menu').on('click', () => {
@@ -113,62 +108,51 @@ function scrollTo(element) {
     }
 }
 
-Element.prototype.animation = function (type) {
-    let cb;
-    let observer = new IntersectionObserver(entries => {
-        console.log(entries);
-        if (entries[0].isIntersecting) {
-            cb();
-        }
-    });
+Element.prototype.animation = function (type, isObserver = true) {
+    window.addEventListener('scroll',(ev)=>{
+        console.log(ev);
+    })
 
-    const anime = (opacity = '1', transform = 'translate(0);', transition = '1.9') => `opacity:${opacity}; transform : ${transform}; transition:${transition}s;`,
+
+    const anime = (opacity = '1', transform = 'translate(0);', transition = '1.9', display = 'none') => `opacity:${opacity}; transform : ${transform}; transition:${transition}s;`,
         reset = anime(1, 'translate(0,0)', 1.9);
     const width = this.offsetWidth;
 
-    document.body.style.overflowX = 'hidden';
     if (type == 'f-left') {
-        this.style.cssText = anime(0, 'translate(-100%,0)', 1.9)
-        cb = () => {
+        this.style.cssText = anime(0, 'translate(-100%,0)', 1.9);
+        setTimeout(() => {
+            
             this.style.cssText = reset
-            observer.disconnect()
+        }, 1800);
+        // observer.disconnect()
 
-        }
     } else if (type == 'f-right') {
         this.style.cssText = anime(0, 'translate(100%,0)', 1.9)
-        cb = () => {
-            this.style.cssText = reset
-            observer.disconnect()
+        this.style.cssText = reset
 
-        }
     } else if (type == 'show') {
         this.style.cssText = anime(0)
-        cb = () => {
-            this.style.cssText = reset
-            observer.disconnect()
+        this.style.cssText = reset
+        // observer.disconnect()
 
-        }
     } else if (type == 'm-show') {
         this.style.cssText = anime(1,) + 'width:15px !important;height:15px;border-raduis:50%;position:relative;'
-        cb = () => {
-            console.log('m-shi');
-            this.style.cssText = reset + 'width:100% !important;height:100%;border-raduis:unset;position:relative;'
-            observer.disconnect()
+        this.style.cssText = reset + 'width:100% !important;height:100%;border-raduis:unset;position:relative;'
+        // observer.disconnect()
 
-        }
     }
 
-    observer.observe(this)
+
 }
 
 // servicesSec.animation('m-show')
 
-const sections = Array.from($('body').children) , sectionsTarge = Array.from(sections).remove(1, -1);
+const sections = Array.from($('body').children).remove(1, -1), sectionsTarge = Array.from(sections).remove(1, -1);
 
-console.log(sections);
-sections[0].animation('f-left');
-sections[1].animation('f-right');
+// console.log(sections);
+// sections[0].animation('f-left', false);
+// sections[1].animation('f-right', false);
 
-sectionsTarge.forEach((e, i) => {
-    i % 2 == 0 ? e.animation('f-left') : e.animation('f-right');
-})
+// sectionsTarge.forEach((e, i) => {
+//     i % 2 == 0 ? e.animation('f-left') : e.animation('f-right');
+// })
