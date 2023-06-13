@@ -109,7 +109,7 @@ function scrollTo(element) {
 }
 
 Element.prototype.animation = function (type, isObserver = true) {
-    window.addEventListener('scroll',(ev)=>{
+    window.addEventListener('scroll', (ev) => {
         console.log(ev);
     })
 
@@ -121,7 +121,7 @@ Element.prototype.animation = function (type, isObserver = true) {
     if (type == 'f-left') {
         this.style.cssText = anime(0, 'translate(-100%,0)', 1.9);
         setTimeout(() => {
-            
+
             this.style.cssText = reset
         }, 1800);
         // observer.disconnect()
@@ -156,3 +156,15 @@ const sections = Array.from($('body').children).remove(1, -1), sectionsTarge = A
 // sectionsTarge.forEach((e, i) => {
 //     i % 2 == 0 ? e.animation('f-left') : e.animation('f-right');
 // })
+
+function copyToClipboard(text) {
+    return navigator.clipboard.writeText(text)
+}
+
+const copyBtn = $('.call-us-div'), content = '0500406056', successMsg = $('#successMsg');
+copyBtn.on('click', () => {
+    copyToClipboard(content);
+    successMsg.classList.add('show');
+    setTimeout(()=>{successMsg.classList.remove('show')},1000)
+})
+

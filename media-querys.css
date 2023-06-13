@@ -49,7 +49,7 @@
 
     /* Start contact-us section  */
     #contact-us {
-        height: 40vh;
+        height: 55vh;
         background-image: url('./images/banner.jpg');
         background-size: cover;
     }
@@ -60,12 +60,15 @@
 
     #contact-us .container {
         flex-direction: column;
+        display: grid;
+        place-content: center;
     }
 
     #contact-us .container .r-col {
         position: relative;
         padding: 0;
         width: 100%;
+        height: 100%;
         padding: 20px 10px;
         opacity: .9;
         color: var(--ft-color);

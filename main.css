@@ -140,6 +140,22 @@ section {
     margin-bottom: 40px;
 }
 
+#successMsg{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    z-index: 15;
+    padding: 5px 25px;
+    border-radius: 7px;
+    color: white;
+    background-color: var(--main-color);
+    display: none;
+}
+
+#successMsg.show{
+    display: block;
+}
 /* End global styles  */
 
 /* Start header  */
@@ -221,13 +237,13 @@ header .container #routes a:hover {
 #contact-us {
     background-color: var(--ft2-color);
     height: 70vh;
-    display: grid;
-    place-items: center;
+    padding: 20px 0;
 }
 
 #contact-us .container {
     position: relative;
-    padding: 0;
+    height: 100%;
+    padding:0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -250,11 +266,10 @@ header .container #routes a:hover {
     background-color: var(--bg-color);
     position: relative;
     width: calc(50% - 7.5px);
-    height: 100%;
-    padding: 70px 10px;
+    padding: 10px;
     z-index: 2;
+    height: 90%;
 }
-
 
 #contact-us .container .r-col p{
     display: flex;
@@ -290,9 +305,25 @@ header .container #routes a:hover {
 color: var(--main-color);
 }
 
+#contact-us .container .r-col .call-us-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#contact-us .container .r-col .call-us-div #copy{
+   cursor: pointer;
+   transition: .4s;
+}
+
+#contact-us .container .r-col .call-us-div #copy:hover{
+    color: var(--main-color);
+
+}
+
 #contact-us .container .r-col #ph-num {
     letter-spacing: 1.5px;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 
