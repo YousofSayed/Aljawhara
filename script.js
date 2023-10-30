@@ -76,7 +76,7 @@ const servicesSec = $('#services'),
     shortContent = [boxs[0].textContent, boxs[1].textContent, boxs[2].textContent, boxs[3].textContent]
 readMoreBtns.forEach((e, i) => {
     readMoreBtns[i].setAttribute('num', i);
-    e.on('click', (ev) => {
+    e.addEventListener('click', (ev) => {
         boxs.forEach((e, i) => { e.textContent = shortContent[i]; })
 
         if (e.textContent == 'اقرأ المزيد') {
@@ -162,7 +162,7 @@ function copyToClipboard(text) {
 }
 
 const copyBtn = $('.call-us-div'), content = '0500406056', successMsg = $('#successMsg');
-copyBtn.on('click', () => {
+copyBtn.addEventListener('click', () => {
     copyToClipboard(content);
     successMsg.classList.add('show');
     setTimeout(()=>{successMsg.classList.remove('show')},1000)
