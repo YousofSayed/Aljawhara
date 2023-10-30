@@ -6,7 +6,7 @@ import { $, $a } from 'https://yousofsayed.github.io/cocktail.js/cocktail.js';
 const routs = $a('header .container #routes a');
 
 routs.forEach((e) => {
-    e.on('click', (ev) => {
+    e.addEventListener('click', (ev) => {
         routs.forEach(e => e.classList.remove('click'))
         e.classList.add('click')
     })
@@ -26,7 +26,7 @@ Array.prototype.remove = function (...num) {
 
 /******************@Start_menu *********************/
 
-$('.menu').on('click', () => {
+$('.menu').addEventListener('click', () => {
     $('#brg-menue').textContent = $('#brg-menue').textContent.trim() == 'menu' ? 'close' : 'menu';
     $('#routes').classList.toggle('show');
 })
